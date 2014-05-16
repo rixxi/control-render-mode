@@ -15,6 +15,7 @@ trait RenderMode /* implements IRenderMode */
 	/** @var callback[] */
 	public $onRenderModeChange = [];
 
+	/** @var string|null */
 	private $defaultRenderMode = IRenderMode::DEFAULT_RENDER_MODE;
 
 	/** @var string|null */
