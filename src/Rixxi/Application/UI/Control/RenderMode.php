@@ -53,7 +53,7 @@ trait RenderMode /* implements IRenderMode */
 	public function __call($name, $args)
 	{
 		if (isset($name[7]) && strpos($name, 'render') === 0) {
-			$previous = $this->getRenderMode();
+			$previous = $this->renderMode;
 			$this->setRenderMode(lcfirst(substr($name, 6)));
 			call_user_func_array([$this, 'render'], $args);
 			$this->setRenderMode($previous);
