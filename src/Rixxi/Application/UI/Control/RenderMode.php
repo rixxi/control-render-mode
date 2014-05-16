@@ -12,6 +12,9 @@ namespace Rixxi\Application\UI\Control;
 trait RenderMode /* implements IRenderMode */
 {
 
+	/** @var callback[] */
+	public $onRenderModeChange = [];
+
 	private $defaultRenderMode = IRenderMode::DEFAULT_RENDER_MODE;
 
 	/** @var string|null */
@@ -22,6 +25,7 @@ trait RenderMode /* implements IRenderMode */
 	protected function setDefaultRenderMode($mode = IRenderMode::DEFAULT_RENDER_MODE)
 	{
 		$this->defaultRenderMode = $mode;
+		$this->onRenderModeChange($this);
 	}
 
 
@@ -35,6 +39,7 @@ trait RenderMode /* implements IRenderMode */
 	public function setRenderMode($mode = IRenderMode::DEFAULT_RENDER_MODE)
 	{
 		$this->renderMode = $mode;
+		$this->onRenderModeChange($this);
 	}
 
 
