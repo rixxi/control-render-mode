@@ -57,6 +57,7 @@ trait RenderMode /* implements IRenderMode */
 			$this->setRenderMode(lcfirst(substr($name, 6)));
 			call_user_func_array([$this, 'render'], $args);
 			$this->setRenderMode($previous);
+			return; // intentionally empty
 		}
 
 		return parent::__call($name, $args);
